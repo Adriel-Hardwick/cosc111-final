@@ -10,8 +10,17 @@ public class Helper
      * For mode 1, converts kilometers to miles
      * For mode 2, converts miles to kilometers
      */
-    public static double Converter(double value, int mode)
+    public static double Converter(double count, int mode)
     {
+        while (mode == 1)
+        {
+            return count * 0.62;
+        }
+        while (mode == 2)
+        {
+            return count * 1.609;
+        }
+        
         return 0;
     }
     
@@ -22,6 +31,7 @@ public class Helper
      */
     public static int[] generateRandom(int count, int min, int max)
     {
+    	
     	return null;
     }
     
@@ -30,15 +40,27 @@ public class Helper
      */
     public static int findSmallestNumberThatDivides (int n1, int n2)
     {
-    	return 0;
+    	int i = 2;
+        while (true)
+    	{
+    		// Check if the remainider is 0
+    		if ( ( n1 % i == 0) && (n2 % i == 0))
+    			return i;
+    		i++;
+    	}
     }
     
     /*
-     * Find the mean of the numbers in values
+     * Find the mean of the numbers in counts
      */
-    public static double findMean(double[] values)
+    public static double findMean(double[] counts)
     {
-    	return 0;
+    	double sum = 0;
+    	for (int i=0; i<counts.length; i++)
+        {
+        	sum += counts[i];
+        }
+        return sum/counts.length;
     }
     
     /*
@@ -48,7 +70,14 @@ public class Helper
      */
     public static boolean isMichiganSSN(long ssn)
     {
-    	return false;
+    	
+        int digit = (int) ssn;
+        int mich = digit/1000000;
+        while ((mich > 362) && (mich < 386))
+        {
+            return true;
+        }
+        return false;
     }
     
     /*
@@ -57,7 +86,8 @@ public class Helper
      */
     public static double calculateDoublingTime(double r)
     {
-    	return 0;
+    	return Math.log(2) / Math.log(1 + (r/100));
+    	
     }
     
     /*
